@@ -169,12 +169,12 @@ function checkReturnForState(config, editorState, ev) {
       newEditorState = checkCharacterForState(config, newEditorState, "\n");
     }
     if (newEditorState === editorState) {
-      newEditorState = insertEmptyBlock(newEditorState);
+      newEditorState = insertEmptyBlock(newEditorState, type);
     } else {
       newEditorState = RichUtils.toggleBlockType(newEditorState, type);
     }
   } else if (isCollapsed && (isHeader || isBlockQuote) && !isAtEndOfLine) {
-    newEditorState = splitBlockAndChange(newEditorState);
+    newEditorState = splitBlockAndChange(newEditorState, type);
   }
   if (
     newEditorState === editorState &&
