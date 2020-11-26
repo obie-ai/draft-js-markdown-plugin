@@ -416,7 +416,7 @@ describe("handleBlockType", () => {
             depth: 0,
             inlineStyleRanges: [],
             entityRanges: [],
-            data: {},
+            data: { start: "2" },
           },
         ],
       },

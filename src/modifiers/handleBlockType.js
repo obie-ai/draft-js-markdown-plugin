@@ -60,10 +60,13 @@ const handleBlockType = (whiteList, editorState, character) => {
 
     matchArr = line.match(/^[\d]\. (.*)$/);
     if (matchArr && whiteList.includes("ordered-list-item")) {
+      let fullText = matchArr[0];
+      let start = fullText.split(".")[0];
       return changeCurrentBlockType(
         editorState,
         "ordered-list-item",
-        matchArr[1]
+        matchArr[1],
+        { start }
       );
     }
     matchArr = line.match(/^> (.*)$/);
